@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab - Wallet Simulation</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        .warning {
+            background: #3a2415;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #6c63ff;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        #result {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border-radius: 8px;
+            line-height: 1.7;
+        }
+
+        .danger {
+            color: #ff7777;
+            font-weight: bold;
+        }
+
+        .safe {
+            color: #6cff8d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>👛 Fake Wallet Attack</h1>
+
+    <div class="warning">
+        ⚠️ TRAINING MODE<br><br>
+        This is a simulated wallet. It does not connect to a
+        blockchain and cannot move real cryptocurrency.
+    </div>
+
+    <p>
+        The exercise demonstrates why unexpected wallet
+        connection and token-approval requests can be dangerous.
+    </p>
+
+    <button id="connect">
+        Simulate Wallet Connection
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    const button = document.getElementById("connect");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", function () {
+
+        result.style.display = "block";
+
+        result.innerHTML = `
+            🔌 <strong>TEST wallet connected</strong><br><br>
+
+            👛 Wallet: TEST-WALLET-001<br>
+            💰 Balance: 10 TEST COINS<br><br>
+
+            ⚠️ A simulated website is requesting a
+            dangerous token approval.<br><br>
+
+            🛑 No real approval was sent.<br>
+            🛑 No blockchain transaction occurred.<br>
+            🛑 No real cryptocurrency was affected.<br><br>
+
+            <span class="danger">
+            🚨 SIMULATED WALLET ATTACK DETECTED
+            </span><br><br>
+
+            <span class="safe">
+            🛡️ Training lesson: Never approve an
+            unexpected wallet request.
+            </span>
+        `;
+
+        button.disabled = true;
+        button.textContent = "Simulation Completed";
+    });
+</script>
+
+</div>
+
+</body>
+</html>
