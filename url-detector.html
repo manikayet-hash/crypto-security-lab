@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab - URL Detector</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        input, button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            margin-top: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input {
+            background: #111;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        button {
+            background: #6c63ff;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border-radius: 8px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .safe {
+            color: #6cff8d;
+        }
+
+        .danger {
+            color: #ff7777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🔎 URL Security Detector</h1>
+
+    <p>
+        Enter a TEST URL to check for common phishing warning signs.
+        This tool analyzes the URL locally and does not visit the website.
+    </p>
+
+    <input
+        id="urlInput"
+        type="text"
+        placeholder="https://example.com"
+        autocomplete="off"
+    >
+
+    <button id="checkButton">
+        Analyze TEST URL
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    const input = document.getElementById("urlInput");
+    const button = document.getElementById("checkButton");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", function () {
+
+        const value = input.value.trim();
+
+        if (!value) {
+            result.style.display = "block";
+            result.innerHTML = "⚠️ Enter a TEST URL first.";
+            return;
+        }
+
+        let warnings = [];
+
+        if (value.startsWith("http://")) {
+            warnings.push("⚠️ HTTP connection detected. HTTPS is normally safer.");
+        }
+
+        if (value.includes("@")) {
+            warnings.push("⚠️ URL contains @, which can hide the actual destination.");
+        }
+
+        if (value.includes("--")) {
+            warnings.push("⚠️ Double hyphen detected. Check the domain carefully.");
+        }
+
+        const cryptoWords = [
+            "wallet",
+            "crypto",
+            "exchange",
+            "binance",
+            "coinbase",
+            "metamask",
+            "ledger"
+        ];
+
+        const lower = value.toLowerCase();
+
+        for (const word of cryptoWords) {
+            if (lower.includes(word)) {
+                warnings.push(
+                    "🔎 Crypto-related name detected: " + word +
+                    ". Make sure the domain is genuinely owned by the service."
+                );
+            }
+        }
+
+        if (value.length > 120) {
+            warnings.push("⚠️ Very long URL. Inspect it carefully before opening.");
+        }
+
+        result.style.display = "block";
+
+        if (warnings.length === 0) {
+            result.innerHTML =
+                '<span class="safe">✅ No obvious warning signs detected.</span>' +
+                '<br><br>Remember: this does NOT prove that a website is safe.';
+        } else {
+            result.innerHTML =
+                '<span class="danger"><strong>🚨 Warning signs found:</strong></span>' +
+                '<br><br>' +
+                warnings.join("<br><br>") +
+                '<br><br>🛡️ Do not enter passwords, seed phrases, or private keys.';
+        }
+    });
+</script>
+
+</body>
+</html>
