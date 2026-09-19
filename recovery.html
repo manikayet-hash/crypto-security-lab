@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab - Recovery</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .warning {
+            background: #3a2415;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #6c63ff;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+        }
+
+        #log {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border-radius: 8px;
+            line-height: 1.8;
+        }
+
+        .safe {
+            color: #6cff8d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🛡️ Security Recovery</h1>
+
+    <div class="warning">
+        ⚠️ TRAINING MODE<br><br>
+        This is a simulated incident-response exercise.
+        No real wallet, account, token, or blockchain is involved.
+    </div>
+
+    <button id="recover">
+        Start Recovery
+    </button>
+
+    <div id="log"></div>
+
+</div>
+
+<script>
+    const button = document.getElementById("recover");
+    const log = document.getElementById("log");
+
+    button.addEventListener("click", function () {
+
+        log.style.display = "block";
+
+        const steps = [
+            "🚨 1. Suspicious wallet activity detected",
+            "🔌 2. TEST wallet disconnected",
+            "🚫 3. Simulated token approval revoked",
+            "🔐 4. Security settings reviewed",
+            "🔍 5. Incident activity investigated",
+            "✅ 6. TEST account secured and recovered"
+        ];
+
+        let index = 0;
+
+        function showStep() {
+            if (index < steps.length) {
+                log.innerHTML += steps[index] + "<br>";
+                index++;
+                setTimeout(showStep, 700);
+            } else {
+                log.innerHTML +=
+                    "<br><span class='safe'>" +
+                    "🛡️ RECOVERY COMPLETE — TEST ENVIRONMENT SECURED" +
+                    "</span><br><br>" +
+                    "Lesson: If a wallet interaction looks suspicious, " +
+                    "stop interacting with the site and review/revoke " +
+                    "unexpected permissions.";
+                button.disabled = true;
+                button.textContent = "Recovery Completed";
+            }
+        }
+
+        showStep();
+    });
+</script>
+
+</div>
+
+</body>
+</html>
