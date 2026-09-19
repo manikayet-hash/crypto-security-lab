@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab - Test Account</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 390px;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 12px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input {
+            background: #111;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        button {
+            background: #6c63ff;
+            color: white;
+            border: none;
+            font-weight: bold;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #172b1c;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🧪 TEST Account</h1>
+
+    <p>
+        This is a controlled security-training account.
+        It is not connected to a real crypto service.
+    </p>
+
+    <input
+        id="username"
+        type="text"
+        placeholder="TEST username"
+        autocomplete="off"
+    >
+
+    <button id="createAccount">
+        Create TEST Account
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+    const button = document.getElementById("createAccount");
+    const usernameInput = document.getElementById("username");
+    const result = document.getElementById("result");
+
+    button.addEventListener("click", function () {
+
+        const username = usernameInput.value.trim();
+
+        if (!username) {
+            result.style.display = "block";
+            result.textContent = "Please enter a TEST username.";
+            return;
+        }
+
+        const safeUsername = username.replace(/[<>&"]/g, "");
+
+        result.style.display = "block";
+        result.innerHTML =
+            "✅ TEST account created<br><br>" +
+            "Username: <strong>" +
+            safeUsername +
+            "</strong><br><br>" +
+            "🛡️ Training only. No real account was created.";
+    });
+</script>
+
+</body>
+</html>
