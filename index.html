@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .box {
+            width: 85%;
+            max-width: 380px;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 12px;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+        input {
+            background: #111;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        button {
+            background: #6c63ff;
+            color: white;
+            border: 0;
+        }
+
+        #warning {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #493600;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🪙 Crypto Vault</h1>
+
+    <p>Security Training Simulation</p>
+
+    <form id="trainingForm">
+
+        <input
+            type="text"
+            placeholder="Training username"
+            required
+        >
+
+        <input
+            type="password"
+            placeholder="TEST password only"
+            required
+        >
+
+        <button type="submit">Sign In</button>
+
+    </form>
+
+    <div id="warning">
+        ⚠️ <b>PHISHING SIMULATION</b>
+        <br><br>
+        This was a security-awareness exercise.
+        <br><br>
+        Nothing was saved or transmitted.
+    </div>
+
+</div>
+
+<script>
+document.getElementById("trainingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("warning").style.display = "block";
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
