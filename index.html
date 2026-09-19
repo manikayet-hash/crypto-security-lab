@@ -6,199 +6,165 @@
     <title>Crypto Security Lab</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             background: #101010;
             color: white;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
 
-        .box {
-            width: 100%;
-            max-width: 390px;
+        .container {
+            max-width: 650px;
+            margin: 30px auto;
+        }
+
+        .header {
+            text-align: center;
             background: #202020;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 5px;
+        .header h1 {
+            margin-bottom: 8px;
         }
 
-        .subtitle {
-            text-align: center;
-            color: #aaa;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-top: 14px;
-            color: #ddd;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 13px;
-            margin-top: 8px;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-
-        input {
-            background: #111;
-            color: white;
-            border: 1px solid #444;
-        }
-
-        button {
-            background: #6c63ff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background: #554ee0;
-        }
-
-        .warning {
-            background: #332b00;
-            border: 1px solid #8a7500;
-            padding: 12px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            color: #ffe66d;
-            font-size: 14px;
-        }
-
-        #result {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: #172b1c;
-            border: 1px solid #3b8f4a;
-        }
-
-        .lesson {
-            margin-top: 15px;
-            color: #ddd;
+        .header p {
+            color: #bbb;
             line-height: 1.5;
         }
 
-        .lesson li {
-            margin-bottom: 8px;
+        .warning {
+            background: #3a2415;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        .module {
+            background: #202020;
+            padding: 18px;
+            margin-top: 15px;
+            border-radius: 12px;
+        }
+
+        .module h2 {
+            margin-top: 0;
+        }
+
+        .module p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            background: #6c63ff;
+            color: white;
+            text-align: center;
+            padding: 13px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        a:hover {
+            opacity: 0.9;
+        }
+
+        .footer {
+            text-align: center;
+            color: #777;
+            margin-top: 25px;
+            line-height: 1.5;
         }
     </style>
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-    <h1>🪙 Crypto Vault</h1>
-
-    <div class="subtitle">
-        Security Training Simulation
+    <div class="header">
+        <h1>🛡️ Crypto Security Lab</h1>
+        <p>
+            Interactive cybersecurity training using
+            controlled TEST environments.
+        </p>
     </div>
 
     <div class="warning">
-        ⚠️ TRAINING MODE<br>
-        Use TEST data only. Never enter a real password,
-        seed phrase, private key, or wallet credentials.
+        ⚠️ <strong>TRAINING MODE</strong><br><br>
+        This lab does not connect to real crypto accounts,
+        wallets, exchanges, or blockchains.
+        Never enter real passwords, seed phrases,
+        private keys, or authentication codes.
     </div>
 
-    <form id="trainingForm">
+    <div class="module">
+        <h2>🧪 Phase 1 — TEST Account</h2>
+        <p>
+            Create and interact with a completely fake
+            security-training account.
+        </p>
+        <a href="test-account.html">Open TEST Account</a>
+    </div>
 
-        <label for="username">Training username</label>
-        <input
-            id="username"
-            type="text"
-            placeholder="TEST-user"
-            autocomplete="off"
-        >
+    <div class="module">
+        <h2>🎭 Phase 1B — Account Takeover</h2>
+        <p>
+            Watch a controlled simulation of suspicious
+            account-access activity.
+        </p>
+        <a href="attack-simulation.html">Run Attack Simulation</a>
+    </div>
 
-        <label for="password">TEST password only</label>
-        <input
-            id="password"
-            type="password"
-            placeholder="TEST-password"
-            autocomplete="off"
-        >
+    <div class="module">
+        <h2>🔎 Phase 2 — URL Detector</h2>
+        <p>
+            Analyze TEST URLs for common phishing warning signs.
+        </p>
+        <a href="url-detector.html">Open URL Detector</a>
+    </div>
 
-        <button type="submit">
-            Start Simulation
-        </button>
+    <div class="module">
+        <h2>👛 Phase 3 — Fake Wallet Attack</h2>
+        <p>
+            Simulate a dangerous wallet connection and
+            token-approval request.
+        </p>
+        <a href="wallet-simulation.html">Run Wallet Simulation</a>
+    </div>
 
-    </form>
+    <div class="module">
+        <h2>🛡️ Phase 4 — Recovery</h2>
+        <p>
+            Practice the incident-response process:
+            detect, disconnect, revoke, secure, investigate,
+            and recover.
+        </p>
+        <a href="recovery.html">Start Recovery</a>
+    </div>
 
-    <div id="result">
-        <strong>🛡️ Simulation detected</strong>
+    <div class="module">
+        <h2>📚 Phase 5 — Security Guide</h2>
+        <p>
+            Learn about phishing, wallet approvals,
+            seed-phrase theft, account takeover,
+            malicious websites, and social engineering.
+        </p>
+        <a href="security-guide.html">Open Security Guide</a>
+    </div>
 
-        <div class="lesson">
-            <p>
-                This page demonstrates how a fake crypto login
-                can look convincing.
-            </p>
-
-            <ul>
-                <li>Check the website domain carefully.</li>
-                <li>Be suspicious of unexpected login requests.</li>
-                <li>Never enter a seed phrase into a website.</li>
-                <li>Never give anyone your private key.</li>
-                <li>Use bookmarks for important wallet services.</li>
-            </ul>
-
-            <p>
-                <strong>Training result:</strong>
-                No credentials were collected or transmitted.
-            </p>
-        </div>
+    <div class="footer">
+        🧪 Crypto Security Lab<br>
+        Built for cybersecurity education and safe testing.
     </div>
 
 </div>
-
-<script>
-    const form = document.getElementById("trainingForm");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const username = document.getElementById("username").value;
-        const password = document.getElementById("password").value;
-
-        /*
-         * SAFETY:
-         * The submitted values are deliberately not stored,
-         * displayed, transmitted, or sent to a server.
-         */
-
-        if (
-            username === "TEST-user" &&
-            password === "TEST-password"
-        ) {
-            result.style.display = "block";
-        } else {
-            alert("Training mode: use TEST-user / TEST-password only.");
-        }
-
-        form.reset();
-    });
-</script>
 
 </body>
 </html>
