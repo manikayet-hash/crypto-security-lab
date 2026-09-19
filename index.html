@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Security Lab</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background: #101010;
             color: white;
@@ -15,26 +19,41 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
         }
 
         .box {
-            width: 85%;
-            max-width: 380px;
+            width: 100%;
+            max-width: 390px;
             background: #202020;
             padding: 25px;
             border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         h1 {
             text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 14px;
+            color: #ddd;
         }
 
         input, button {
             width: 100%;
             padding: 13px;
-            margin-top: 12px;
-            box-sizing: border-box;
+            margin-top: 8px;
             border-radius: 8px;
+            font-size: 15px;
         }
 
         input {
@@ -46,15 +65,42 @@
         button {
             background: #6c63ff;
             color: white;
-            border: 0;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        #warning {
+        button:hover {
+            background: #554ee0;
+        }
+
+        .warning {
+            background: #332b00;
+            border: 1px solid #8a7500;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: #ffe66d;
+            font-size: 14px;
+        }
+
+        #result {
             display: none;
             margin-top: 20px;
             padding: 15px;
-            background: #493600;
-            border-radius: 8px;
+            border-radius: 10px;
+            background: #172b1c;
+            border: 1px solid #3b8f4a;
+        }
+
+        .lesson {
+            margin-top: 15px;
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .lesson li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -65,44 +111,93 @@
 
     <h1>🪙 Crypto Vault</h1>
 
-    <p>Security Training Simulation</p>
+    <div class="subtitle">
+        Security Training Simulation
+    </div>
+
+    <div class="warning">
+        ⚠️ TRAINING MODE<br>
+        Use TEST data only. Never enter a real password,
+        seed phrase, private key, or wallet credentials.
+    </div>
 
     <form id="trainingForm">
 
+        <label for="username">Training username</label>
         <input
+            id="username"
             type="text"
-            placeholder="Training username"
-            required
+            placeholder="TEST-user"
+            autocomplete="off"
         >
 
+        <label for="password">TEST password only</label>
         <input
+            id="password"
             type="password"
-            placeholder="TEST password only"
-            required
+            placeholder="TEST-password"
+            autocomplete="off"
         >
 
-        <button type="submit">Sign In</button>
+        <button type="submit">
+            Start Simulation
+        </button>
 
     </form>
 
-    <div id="warning">
-        ⚠️ <b>PHISHING SIMULATION</b>
-        <br><br>
-        This was a security-awareness exercise.
-        <br><br>
-        Nothing was saved or transmitted.
+    <div id="result">
+        <strong>🛡️ Simulation detected</strong>
+
+        <div class="lesson">
+            <p>
+                This page demonstrates how a fake crypto login
+                can look convincing.
+            </p>
+
+            <ul>
+                <li>Check the website domain carefully.</li>
+                <li>Be suspicious of unexpected login requests.</li>
+                <li>Never enter a seed phrase into a website.</li>
+                <li>Never give anyone your private key.</li>
+                <li>Use bookmarks for important wallet services.</li>
+            </ul>
+
+            <p>
+                <strong>Training result:</strong>
+                No credentials were collected or transmitted.
+            </p>
+        </div>
     </div>
 
 </div>
 
 <script>
-document.getElementById("trainingForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    const form = document.getElementById("trainingForm");
+    const result = document.getElementById("result");
 
-    document.getElementById("warning").style.display = "block";
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
 
-    this.reset();
-});
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        /*
+         * SAFETY:
+         * The submitted values are deliberately not stored,
+         * displayed, transmitted, or sent to a server.
+         */
+
+        if (
+            username === "TEST-user" &&
+            password === "TEST-password"
+        ) {
+            result.style.display = "block";
+        } else {
+            alert("Training mode: use TEST-user / TEST-password only.");
+        }
+
+        form.reset();
+    });
 </script>
 
 </body>
