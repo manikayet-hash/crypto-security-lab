@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Security Lab - Attack Simulation</title>
+
+    <style>
+        body {
+            background: #101010;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #202020;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .warning {
+            background: #3a2415;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.5;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #d9534f;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        #log {
+            margin-top: 20px;
+            padding: 15px;
+            background: #111;
+            border-radius: 8px;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .safe {
+            color: #6cff8d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>🧪 Attack Simulation</h1>
+
+    <div class="warning">
+        ⚠️ TRAINING MODE<br><br>
+        This simulation does not attack a real account,
+        website, wallet, or service.
+        No passwords or private information are collected.
+    </div>
+
+    <button id="startAttack">
+        Simulate Account Takeover
+    </button>
+
+    <div id="log"></div>
+
+</div>
+
+<script>
+    const button = document.getElementById("startAttack");
+    const log = document.getElementById("log");
+
+    button.addEventListener("click", function () {
+
+        log.style.display = "block";
+
+        log.innerHTML = `
+            🔎 Target: <strong>Tboy</strong><br>
+            📡 Simulated suspicious activity detected<br>
+            ⚠️ Fake attacker attempting account access<br>
+            🛑 No real credentials were used<br>
+            🛡️ Security system blocked the simulation<br><br>
+
+            <span class="safe">
+            ✅ TEST ACCOUNT REMAINS SAFE
+            </span><br><br>
+
+            Lesson: Never enter passwords, seed phrases,
+            private keys, or wallet recovery phrases into
+            suspicious websites.
+        `;
+
+        button.disabled = true;
+        button.textContent = "Simulation Completed";
+    });
+</script>
+
+</div>
+
+</body>
+</html>
